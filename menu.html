@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Aroma | Authentic Hyderabadi Biryani</title>
+  <meta name="description" content="Explore our authentic Hyderabadi biryani menu. Premium quality, traditional recipes, competitive prices. Order now for delivery."><!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"><!-- Elements SDK -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #FF6B35;
+            --deep-charcoal: #2C1810;
+            --rich-burgundy: #D2691E;
+            --warm-cream: #FFF8DC;
+            --accent-copper: #CD853F;
+            --text-dark: #1A1A1A;
+            --text-light: #666;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+            cursor: default;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 24, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(44, 24, 16, 0.98);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--warm-cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--warm-cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(135deg, rgba(44,24,16,0.9), rgba(210,105,30,0.7)), 
+                        url('images/menu-header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Special Offer Banner */
+        .special-offer {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            text-align: center;
+            padding: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Menu Sections */
+        .menu-section {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-charcoal);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .menu-item-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .menu-item-content {
+            padding: 2rem;
+        }
+
+        .menu-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .menu-item-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .menu-item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .menu-item-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .spice-level {
+            display: flex;
+            gap: 2px;
+        }
+
+        .spice-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-light);
+        }
+
+        .spice-dot.active {
+            background: var(--primary-gold);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-copper);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary-gold);
+            border-radius: 30px;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            transform: translateY(-2px);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--warm-cream);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--deep-charcoal);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header {
+                padding: 6rem 0 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .menu-item-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .floating-whatsapp {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .menu-item-content {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Hidden class for category filtering */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav class="navbar" id="navbar">
+   <div class="nav-container"><a href="home.html" class="logo"> <img src="images/logo-icon.png" alt="Aroma Logo" class="logo-icon" onerror="this.style.display='none'"> Aroma </a>
+    <ul class="nav-links" id="navLinks">
+     <li><a href="index.html">Home</a></li>
+     <li><a href="menu.html" class="active">Menu</a></li>
+     <li><a href="story.html">Our Story</a></li>
+     <li><a href="delivery.html">Delivery</a></li>
+     <li><a href="contact.html">Contact</a></li>
+    </ul><button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">☰</button>
+   </div>
+  </nav><!-- Page Header -->
+  <section class="page-header">
+   <div class="container">
+    <h1>Our Authentic Menu</h1>
+    <p>Discover the rich flavors of Hyderabad, crafted with traditional recipes and premium ingredients</p>
+   </div>
+  </section><!-- Special Offer Banner -->
+  <div class="special-offer">
+   🎉 Order 5 times, get 1 FREE! | Free delivery within 5km | Same day delivery available
+  </div><!-- Menu Section -->
+  <section class="menu-section">
+   <div class="container"><!-- Category Tabs -->
+    <div class="category-tabs"><button class="category-tab active" onclick="filterCategory('all')">All Items</button> <button class="category-tab" onclick="filterCategory('biryani')">Biryani</button> <button class="category-tab" onclick="filterCategory('sides')">Sides &amp; Appetizers</button> <button class="category-tab" onclick="filterCategory('desserts')">Desserts</button> <button class="category-tab" onclick="filterCategory('beverages')">Beverages</button>
+    </div><!-- Biryani Section -->
+    <h2 class="section-title">Premium Biryani Collection</h2>
+    <div class="menu-grid"><!-- Royal Hyderabadi Dum Biryani -->
+     <div class="menu-item" data-category="biryani"><img src="images/royal-biryani.jpg" alt="Royal Hyderabadi Dum Biryani" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5Sb3lhbCBCaXJ5YW5pPC90ZXh0Pgo8L3N2Zz4='">
+      <div class="menu-item-badge">
+       Chef's Special
+      </div>
+      <div class="menu-item-content">
+       <h3>Royal Hyderabadi Dum Biryani</h3>
+       <p class="menu-item-description">Premium goat meat marinated for 24 hours in authentic spices, layered with aged basmati rice and slow-cooked for 3+ hours in sealed pots.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 1,200
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍽️ Serves 2-3</span>
+         </div>
+         <div class="info-item"><span>Spice:</span>
+          <div class="spice-level">
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+          </div>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Royal%20Hyderabadi%20Dum%20Biryani%20(KSh%201,200).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 1,200 </a>
+      </div>
+     </div><!-- Chicken Dum Biryani -->
+     <div class="menu-item" data-category="biryani"><img src="images/chicken-biryani.jpg" alt="Chicken Dum Biryani" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRDI2OTFFIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5DaGlja2VuIEJpcnlhbmk8L3RleHQ+Cjwvc3ZnPg=='">
+      <div class="menu-item-badge">
+       Most Popular
+      </div>
+      <div class="menu-item-content">
+       <h3>Chicken Dum Biryani</h3>
+       <p class="menu-item-description">Tender chicken pieces marinated in yogurt and spices, cooked with fragrant basmati rice using traditional dum method.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 800
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍽️ Serves 2</span>
+         </div>
+         <div class="info-item"><span>Spice:</span>
+          <div class="spice-level">
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+          </div>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Chicken%20Dum%20Biryani%20(KSh%20800).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 800 </a>
+      </div>
+     </div><!-- Beef Biryani -->
+     <div class="menu-item" data-category="biryani"><img src="images/beef-biryani.jpg" alt="Beef Dum Biryani" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjQ0Q4NTNGIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5CZWVMIEJpcnlhbmk8L3RleHQ+Cjwvc3ZnPg=='">
+      <div class="menu-item-content">
+       <h3>Beef Dum Biryani</h3>
+       <p class="menu-item-description">Succulent beef chunks slow-cooked with aromatic spices and premium basmati rice, delivering rich and robust flavors.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 900
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍽️ Serves 2</span>
+         </div>
+         <div class="info-item"><span>Spice:</span>
+          <div class="spice-level">
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+          </div>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Beef%20Dum%20Biryani%20(KSh%20900).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 900 </a>
+      </div>
+     </div><!-- Vegetable Biryani -->
+     <div class="menu-item" data-category="biryani"><img src="images/veg-biryani.jpg" alt="Vegetable Dum Biryani" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjMkMxODEwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5WZWdldGFibGUgQmlyeWFuaTwvdGV4dD4KPC9zdmc+'">
+      <div class="menu-item-badge">
+       Vegetarian
+      </div>
+      <div class="menu-item-content">
+       <h3>Vegetable Dum Biryani</h3>
+       <p class="menu-item-description">Fresh seasonal vegetables and paneer cooked with fragrant spices and basmati rice, perfect for vegetarian food lovers.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 600
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍽️ Serves 2</span>
+         </div>
+         <div class="info-item"><span>Spice:</span>
+          <div class="spice-level">
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+          </div>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Vegetable%20Dum%20Biryani%20(KSh%20600).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 600 </a>
+      </div>
+     </div><!-- Fish Biryani -->
+     <div class="menu-item" data-category="biryani"><img src="images/fish-biryani.jpg" alt="Fish Dum Biryani" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZGOERDIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMkMxODEwIiBmb250LXNpemU9IjI0IiBmb250LWZhbWlseT0iQXJpYWwiPkZpc2ggQmlyeWFuaTwvdGV4dD4KPC9zdmc+'">
+      <div class="menu-item-badge">
+       Fresh Daily
+      </div>
+      <div class="menu-item-content">
+       <h3>Fish Dum Biryani</h3>
+       <p class="menu-item-description">Fresh fish fillets marinated in coastal spices, layered with aromatic rice for a unique and flavorful biryani experience.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 950
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍽️ Serves 2</span>
+         </div>
+         <div class="info-item"><span>Spice:</span>
+          <div class="spice-level">
+           <div class="spice-dot active"></div>
+           <div class="spice-dot active"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+           <div class="spice-dot"></div>
+          </div>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Fish%20Dum%20Biryani%20(KSh%20950).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 950 </a>
+      </div>
+     </div><!-- Sides & Appetizers -->
+     <div class="menu-item" data-category="sides"><img src="images/raita.jpg" alt="Cucumber Mint Raita" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5SYWl0YTwvdGV4dD4KPC9zdmc+'">
+      <div class="menu-item-content">
+       <h3>Cucumber Mint Raita</h3>
+       <p class="menu-item-description">Cool and refreshing yogurt-based side dish with fresh cucumber, mint, and aromatic spices. Perfect complement to spicy biryani.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 150
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🥒 Cooling</span>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Cucumber%20Mint%20Raita%20(KSh%20150).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 150 </a>
+      </div>
+     </div>
+     <div class="menu-item" data-category="sides"><img src="images/shorba.jpg" alt="Mutton Shorba" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRDI2OTFFIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5TaG9yYmE8L3RleHQ+Cjwvc3ZnPg=='">
+      <div class="menu-item-content">
+       <h3>Mutton Shorba</h3>
+       <p class="menu-item-description">Rich and flavorful mutton soup slow-cooked with traditional spices. A perfect starter to awaken your taste buds.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 200
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍲 Appetizer</span>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Mutton%20Shorba%20(KSh%20200).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 200 </a>
+      </div>
+     </div><!-- Desserts -->
+     <div class="menu-item" data-category="desserts"><img src="images/kheer.jpg" alt="Basmati Rice Kheer" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjQ0Q4NTNGIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5LaGVlcjwvdGV4dD4KPC9zdmc+'">
+      <div class="menu-item-content">
+       <h3>Basmati Rice Kheer</h3>
+       <p class="menu-item-description">Creamy rice pudding made with premium basmati rice, milk, and cardamom. Garnished with almonds and pistachios.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 250
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🍮 Sweet</span>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Basmati%20Rice%20Kheer%20(KSh%20250).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 250 </a>
+      </div>
+     </div><!-- Beverages -->
+     <div class="menu-item" data-category="beverages"><img src="images/lassi.jpg" alt="Mango Lassi" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjMkMxODEwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5NYW5nbyBMYXNzaTwvdGV4dD4KPC9zdmc+'">
+      <div class="menu-item-content">
+       <h3>Mango Lassi</h3>
+       <p class="menu-item-description">Thick and creamy yogurt drink blended with fresh mango pulp. A refreshing complement to spicy biryani.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 180
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>🥭 Refreshing</span>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Mango%20Lassi%20(KSh%20180).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 180 </a>
+      </div>
+     </div>
+     <div class="menu-item" data-category="beverages"><img src="images/chai.jpg" alt="Masala Chai" class="menu-item-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZGOERDIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMkMxODEwIiBmb250LXNpemU9IjI0IiBmb250LWZhbWlseT0iQXJpYWwiPk1hc2FsYSBDaGFpPC90ZXh0Pgo8L3N2Zz4='">
+      <div class="menu-item-content">
+       <h3>Masala Chai</h3>
+       <p class="menu-item-description">Traditional spiced tea brewed with cardamom, ginger, and cinnamon. The perfect ending to your biryani experience.</p>
+       <div class="menu-item-details">
+        <div class="menu-item-price">
+         KSh 120
+        </div>
+        <div class="menu-item-info">
+         <div class="info-item"><span>☕ Hot</span>
+         </div>
+        </div>
+       </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20Masala%20Chai%20(KSh%20120).%20Please%20confirm%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now - KSh 120 </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Floating WhatsApp Button --> <a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20see%20your%20full%20menu%20and%20place%20an%20order." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp"> <img src="images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" onerror="this.innerHTML='💬'"> </a> <!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3>Aroma</h3>
+      <p>Bringing the authentic taste of Hyderabadi biryani to your doorstep. Crafted with heritage, delivered with heart.</p>
+     </div>
+     <div class="footer-section">
+      <h3>Quick Order</h3>
+      <p><a href="https://wa.me/254718763032" target="_blank" rel="noopener noreferrer">WhatsApp: +254 718 763 032</a></p>
+      <p>Hours: 10 AM - 10 PM Daily</p>
+      <p>Free delivery within 5 km</p>
+     </div>
+     <div class="footer-section">
+      <h3>Popular Items</h3>
+      <p>Royal Hyderabadi Dum Biryani</p>
+      <p>Chicken Dum Biryani</p>
+      <p>Beef Dum Biryani</p>
+      <p>Vegetable Dum Biryani</p>
+     </div>
+     <div class="footer-section">
+      <h3>Special Offers</h3>
+      <p>Order 5 Times, Get 1 Free</p>
+      <p>Same Day Delivery</p>
+      <p>Gift Biryani to Friends</p>
+      <p>Bulk Order Discounts</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 Aroma Cloud Kitchen. All rights reserved. | Crafted with ❤️ for biryani lovers worldwide</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Configuration object for editable elements
+        const defaultConfig = {
+            page_title: "Our Authentic Menu",
+            page_subtitle: "Discover the rich flavors of Hyderabad, crafted with traditional recipes and premium ingredients",
+            phone_number: "+254718763032",
+            special_offer: "Order 5 times, get 1 FREE! | Free delivery within 5km | Same day delivery available",
+            primary_color: "#FF6B35",
+            background_color: "#FFF8DC",
+            accent_color: "#D2691E",
+            font_family: "Playfair Display",
+            font_size: 16
+        };
+
+        let config = { ...defaultConfig };
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Category filtering
+        function filterCategory(category) {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            
+            // Update active tab
+            categoryTabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter menu items
+            menuItems.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // Elements SDK Integration
+        async function onConfigChange(newConfig) {
+            // Update page title
+            const pageTitle = document.querySelector('.page-header h1');
+            if (pageTitle) {
+                pageTitle.textContent = newConfig.page_title || defaultConfig.page_title;
+            }
+
+            // Update page subtitle
+            const pageSubtitle = document.querySelector('.page-header p');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = newConfig.page_subtitle || defaultConfig.page_subtitle;
+            }
+
+            // Update special offer
+            const specialOffer = document.querySelector('.special-offer');
+            if (specialOffer) {
+                specialOffer.textContent = newConfig.special_offer || defaultConfig.special_offer;
+            }
+
+            // Update phone numbers in all WhatsApp links
+            const phoneNumber = newConfig.phone_number || defaultConfig.phone_number;
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            
+            whatsappLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/wa\.me\/[\d+]+/, `wa.me/${phoneNumber.replace(/\s+/g, '')}`);
+                link.setAttribute('href', newHref);
+            });
+
+            // Apply colors
+            const primaryColor = newConfig.primary_color || defaultConfig.primary_color;
+            const backgroundColor = newConfig.background_color || defaultConfig.background_color;
+            const accentColor = newConfig.accent_color || defaultConfig.accent_color;
+
+            // Update CSS custom properties
+            document.documentElement.style.setProperty('--primary-gold', primaryColor);
+            document.documentElement.style.setProperty('--warm-cream', backgroundColor);
+            document.documentElement.style.setProperty('--rich-burgundy', accentColor);
+
+            // Apply font family
+            const fontFamily = newConfig.font_family || defaultConfig.font_family;
+            const baseFontStack = 'Arial, sans-serif';
+            
+            // Apply to headings and titles
+            const headings = document.querySelectorAll('h1, h2, h3, .logo, .section-title');
+            headings.forEach(el => {
+                el.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+            });
+
+            // Apply font size scaling
+            const fontSize = newConfig.font_size || defaultConfig.font_size;
+            
+            // Scale different text elements proportionally
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 2.2}px`;
+            });
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.6}px`;
+            });
+
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.4}px`;
+            });
+
+            const bodyElements = document.querySelectorAll('p, .btn, .menu-item-description');
+            bodyElements.forEach(el => {
+                el.style.fontSize = `${fontSize}px`;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["page_title", config.page_title || defaultConfig.page_title],
+                ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                ["phone_number", config.phone_number || defaultConfig.phone_number],
+                ["special_offer", config.special_offer || defaultConfig.special_offer]
+            ]);
+        }
+
+        // Initialize Elements SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Update config reference
+        if (window.elementSdk && window.elementSdk.config) {
+            config = window.elementSdk.config;
+        }
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes mobile menu
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997501aef0ad50d4',t:'MTc2MTkzMzE1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
