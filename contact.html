@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Aroma | Order Authentic Hyderabadi Biryani</title>
+  <meta name="description" content="Contact Aroma for authentic Hyderabadi biryani orders. WhatsApp, phone, email. Fast delivery across Nairobi. Open 10 AM - 10 PM daily."><!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"><!-- Elements SDK -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #FF6B35;
+            --deep-charcoal: #2C1810;
+            --rich-burgundy: #D2691E;
+            --warm-cream: #FFF8DC;
+            --accent-copper: #CD853F;
+            --text-dark: #1A1A1A;
+            --text-light: #666;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+            cursor: default;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 24, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(44, 24, 16, 0.98);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--warm-cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--warm-cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(135deg, rgba(44,24,16,0.9), rgba(210,105,30,0.7)), 
+                        linear-gradient(45deg, var(--primary-gold), var(--rich-burgundy));
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--warm-cream);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Sections */
+        .contact-section {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-charcoal);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+
+        /* Quick Contact Cards */
+        .quick-contact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-card.primary {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+        }
+
+        .contact-card.primary h3,
+        .contact-card.primary .contact-info {
+            color: var(--deep-charcoal);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--primary-gold);
+        }
+
+        .contact-card.primary .contact-icon {
+            color: var(--deep-charcoal);
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-card.primary .contact-info {
+            color: var(--deep-charcoal);
+            font-weight: 500;
+        }
+
+        .contact-action {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .contact-card:not(.primary) .contact-action {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+        }
+
+        .contact-card.primary .contact-action {
+            background: var(--deep-charcoal);
+            color: var(--warm-cream);
+        }
+
+        .contact-action:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Business Info Section */
+        .business-info {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .business-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--warm-cream);
+            border-radius: 15px;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-top: 0.2rem;
+        }
+
+        .info-content h4 {
+            color: var(--deep-charcoal);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .business-image {
+            background: var(--warm-cream);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .business-placeholder {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: var(--deep-charcoal);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group label {
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-submit {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            justify-self: center;
+        }
+
+        .form-submit:hover {
+            background: var(--accent-copper);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid #22c55e;
+            color: #22c55e;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--warm-cream);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--deep-charcoal);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header {
+                padding: 6rem 0 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .quick-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .business-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .business-info {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .floating-whatsapp {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-card {
+                padding: 2rem;
+            }
+
+            .form-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav class="navbar" id="navbar">
+   <div class="nav-container"><a href="home.html" class="logo"> <img src="images/logo-icon.png" alt="Aroma Logo" class="logo-icon" onerror="this.style.display='none'"> Aroma </a>
+    <ul class="nav-links" id="navLinks">
+     <li><a href="home.html">Home</a></li>
+     <li><a href="menu.html">Menu</a></li>
+     <li><a href="story.html">Our Story</a></li>
+     <li><a href="delivery.html">Delivery</a></li>
+     <li><a href="contact.html" class="active">Contact</a></li>
+    </ul><button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">☰</button>
+   </div>
+  </nav><!-- Page Header -->
+  <section class="page-header">
+   <div class="container">
+    <h1>Contact Us</h1>
+    <p>Ready to order? Get in touch for authentic Hyderabadi biryani delivered fresh to your doorstep</p>
+   </div>
+  </section><!-- Quick Contact Options -->
+  <section class="contact-section">
+   <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="quick-contact">
+     <div class="contact-card primary"><span class="contact-icon">📱</span>
+      <h3>WhatsApp Order</h3>
+      <div class="contact-info"><strong>+254 718 763 032</strong><br>
+        Fastest way to order<br>
+        Instant confirmation
+      </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20place%20an%20order%20for%20biryani.%20What's%20available%20today?" class="contact-action" target="_blank" rel="noopener noreferrer"> Order via WhatsApp </a>
+     </div>
+     <div class="contact-card"><span class="contact-icon">📞</span>
+      <h3>Call Us</h3>
+      <div class="contact-info"><strong>+254 718 763 032</strong><br>
+        Speak directly with us<br>
+        Immediate assistance
+      </div><a href="tel:+254718763032" class="contact-action"> Call Now </a>
+     </div>
+     <div class="contact-card"><span class="contact-icon">✉️</span>
+      <h3>Email Us</h3>
+      <div class="contact-info"><strong>orders@aromabiryani.co.ke</strong><br>
+        For detailed inquiries<br>
+        Catering requests
+      </div><a href="mailto:orders@aromabiryani.co.ke?subject=Biryani Order Inquiry" class="contact-action"> Send Email </a>
+     </div>
+     <div class="contact-card"><span class="contact-icon">📍</span>
+      <h3>Visit Us</h3>
+      <div class="contact-info"><strong>Westlands, Nairobi</strong><br>
+        Cloud kitchen location<br>
+        Pickup available
+      </div><a href="https://maps.google.com/?q=Westlands,Nairobi" class="contact-action" target="_blank" rel="noopener noreferrer"> Get Directions </a>
+     </div>
+    </div>
+   </div>
+  </section><!-- Business Information -->
+  <section class="contact-section">
+   <div class="container">
+    <div class="business-info">
+     <div class="business-grid">
+      <div class="business-details">
+       <h3>Aroma Cloud Kitchen</h3>
+       <div class="info-item"><span class="info-icon">🕒</span>
+        <div class="info-content">
+         <h4>Business Hours</h4>
+         <p>10:00 AM - 10:00 PM Daily<br>
+           Last order accepted at 9:30 PM</p>
+        </div>
+       </div>
+       <div class="info-item"><span class="info-icon">🚚</span>
+        <div class="info-content">
+         <h4>Delivery Areas</h4>
+         <p>Free delivery within 5km<br>
+           Extended delivery up to 15km available</p>
+        </div>
+       </div>
+       <div class="info-item"><span class="info-icon">💳</span>
+        <div class="info-content">
+         <h4>Payment Methods</h4>
+         <p>Cash on delivery, M-Pesa<br>
+           Bank transfers accepted</p>
+        </div>
+       </div>
+       <div class="info-item"><span class="info-icon">⭐</span>
+        <div class="info-content">
+         <h4>Specialties</h4>
+         <p>Authentic Hyderabadi biryani<br>
+           Traditional cooking methods</p>
+        </div>
+       </div>
+      </div>
+      <div class="business-image">
+       <div class="business-placeholder">
+        🏪
+       </div>
+       <h4>Aroma Cloud Kitchen</h4>
+       <p>Your trusted source for authentic Hyderabadi biryani in Nairobi</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Form -->
+  <section class="contact-form-section">
+   <div class="form-container">
+    <h2 class="section-title" style="color: white;">Send Us a Message</h2>
+    <form class="contact-form" id="contactForm">
+     <div class="form-row">
+      <div class="form-group"><label for="firstName">First Name *</label> <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+      </div>
+      <div class="form-group"><label for="lastName">Last Name *</label> <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+      </div>
+     </div>
+     <div class="form-row">
+      <div class="form-group"><label for="email">Email Address *</label> <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+      </div>
+      <div class="form-group"><label for="phone">Phone Number</label> <input type="tel" id="phone" name="phone" placeholder="+254 XXX XXX XXX">
+      </div>
+     </div>
+     <div class="form-group"><label for="inquiryType">Inquiry Type</label> <select id="inquiryType" name="inquiryType"> <option value="order">Place an Order</option> <option value="catering">Catering Services</option> <option value="delivery">Delivery Inquiry</option> <option value="feedback">Feedback</option> <option value="other">Other</option> </select>
+     </div>
+     <div class="form-group"><label for="message">Message *</label> <textarea id="message" name="message" rows="6" required placeholder="Tell us about your biryani needs, delivery location, or any questions you have..."></textarea>
+     </div><button type="submit" class="form-submit">Send Message</button>
+     <div class="success-message" id="successMessage">
+      Thank you for your message! We'll get back to you within 24 hours.
+     </div>
+    </form>
+   </div>
+  </section><!-- Floating WhatsApp Button --> <a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I%20found%20your%20contact%20page.%20I'd%20like%20to%20place%20an%20order." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp"> <img src="images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" onerror="this.innerHTML='💬'"> </a> <!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3>Contact Aroma</h3>
+      <p>Your gateway to authentic Hyderabadi biryani in Nairobi. Fresh, fast, and always delicious.</p>
+     </div>
+     <div class="footer-section">
+      <h3>Quick Contact</h3>
+      <p><a href="https://wa.me/254718763032" target="_blank" rel="noopener noreferrer">WhatsApp: +254 718 763 032</a></p>
+      <p><a href="tel:+254718763032">Call: +254 718 763 032</a></p>
+      <p><a href="mailto:orders@aromabiryani.co.ke">Email: orders@aromabiryani.co.ke</a></p>
+     </div>
+     <div class="footer-section">
+      <h3>Business Hours</h3>
+      <p>Monday - Sunday</p>
+      <p>10:00 AM - 10:00 PM</p>
+      <p>Last order: 9:30 PM</p>
+     </div>
+     <div class="footer-section">
+      <h3>Location &amp; Delivery</h3>
+      <p>Westlands, Nairobi</p>
+      <p>Free delivery within 5km</p>
+      <p>Extended delivery available</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 Aroma Cloud Kitchen. All rights reserved. | Ready to serve you authentic biryani</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Configuration object for editable elements
+        const defaultConfig = {
+            page_title: "Contact Us",
+            page_subtitle: "Ready to order? Get in touch for authentic Hyderabadi biryani delivered fresh to your doorstep",
+            business_name: "Aroma Cloud Kitchen",
+            phone_number: "+254718763032",
+            email_address: "orders@aromabiryani.co.ke",
+            business_address: "Westlands, Nairobi",
+            business_hours: "10:00 AM - 10:00 PM Daily",
+            primary_color: "#FF6B35",
+            background_color: "#FFF8DC",
+            accent_color: "#D2691E",
+            font_family: "Playfair Display",
+            font_size: 16
+        };
+
+        let config = { ...defaultConfig };
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Elements SDK Integration
+        async function onConfigChange(newConfig) {
+            // Update page title
+            const pageTitle = document.querySelector('.page-header h1');
+            if (pageTitle) {
+                pageTitle.textContent = newConfig.page_title || defaultConfig.page_title;
+            }
+
+            // Update page subtitle
+            const pageSubtitle = document.querySelector('.page-header p');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = newConfig.page_subtitle || defaultConfig.page_subtitle;
+            }
+
+            // Update business name
+            const businessName = document.querySelector('.business-details h3');
+            if (businessName) {
+                businessName.textContent = newConfig.business_name || defaultConfig.business_name;
+            }
+
+            // Update phone numbers
+            const phoneNumber = newConfig.phone_number || defaultConfig.phone_number;
+            const phoneElements = document.querySelectorAll('.contact-info strong');
+            phoneElements.forEach(el => {
+                if (el.textContent.includes('+254')) {
+                    el.textContent = phoneNumber;
+                }
+            });
+
+            // Update email address
+            const emailAddress = newConfig.email_address || defaultConfig.email_address;
+            const emailElements = document.querySelectorAll('.contact-info strong');
+            emailElements.forEach(el => {
+                if (el.textContent.includes('@')) {
+                    el.textContent = emailAddress;
+                }
+            });
+
+            // Update business address
+            const businessAddress = newConfig.business_address || defaultConfig.business_address;
+            const addressElements = document.querySelectorAll('.contact-info strong');
+            addressElements.forEach(el => {
+                if (el.textContent.includes('Westlands') || el.textContent.includes('Nairobi')) {
+                    el.textContent = businessAddress;
+                }
+            });
+
+            // Update business hours
+            const businessHours = newConfig.business_hours || defaultConfig.business_hours;
+            const hoursElement = document.querySelector('.info-content p');
+            if (hoursElement && hoursElement.textContent.includes('10:00 AM')) {
+                hoursElement.innerHTML = `${businessHours}<br>Last order accepted at 9:30 PM`;
+            }
+
+            // Update all WhatsApp and phone links
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            whatsappLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/wa\.me\/[\d+]+/, `wa.me/${phoneNumber.replace(/\s+/g, '')}`);
+                link.setAttribute('href', newHref);
+            });
+
+            const phoneLinks = document.querySelectorAll('a[href*="tel:"]');
+            phoneLinks.forEach(link => {
+                link.setAttribute('href', `tel:${phoneNumber.replace(/\s+/g, '')}`);
+            });
+
+            const emailLinks = document.querySelectorAll('a[href*="mailto:"]');
+            emailLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/mailto:[^?]+/, `mailto:${emailAddress}`);
+                link.setAttribute('href', newHref);
+            });
+
+            // Apply colors
+            const primaryColor = newConfig.primary_color || defaultConfig.primary_color;
+            const backgroundColor = newConfig.background_color || defaultConfig.background_color;
+            const accentColor = newConfig.accent_color || defaultConfig.accent_color;
+
+            // Update CSS custom properties
+            document.documentElement.style.setProperty('--primary-gold', primaryColor);
+            document.documentElement.style.setProperty('--warm-cream', backgroundColor);
+            document.documentElement.style.setProperty('--rich-burgundy', accentColor);
+
+            // Apply font family
+            const fontFamily = newConfig.font_family || defaultConfig.font_family;
+            const baseFontStack = 'Arial, sans-serif';
+            
+            // Apply to headings and titles
+            const headings = document.querySelectorAll('h1, h2, h3, h4, .logo, .section-title');
+            headings.forEach(el => {
+                el.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+            });
+
+            // Apply font size scaling
+            const fontSize = newConfig.font_size || defaultConfig.font_size;
+            
+            // Scale different text elements proportionally
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 2.2}px`;
+            });
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.6}px`;
+            });
+
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.4}px`;
+            });
+
+            const bodyElements = document.querySelectorAll('p, .contact-action, .contact-info, label, input, textarea, select');
+            bodyElements.forEach(el => {
+                el.style.fontSize = `${fontSize}px`;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["page_title", config.page_title || defaultConfig.page_title],
+                ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                ["business_name", config.business_name || defaultConfig.business_name],
+                ["phone_number", config.phone_number || defaultConfig.phone_number],
+                ["email_address", config.email_address || defaultConfig.email_address],
+                ["business_address", config.business_address || defaultConfig.business_address],
+                ["business_hours", config.business_hours || defaultConfig.business_hours]
+            ]);
+        }
+
+        // Initialize Elements SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Update config reference
+        if (window.elementSdk && window.elementSdk.config) {
+            config = window.elementSdk.config;
+        }
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes mobile menu
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997522931341b19c',t:'MTc2MTkzNDQ5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
