@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery - Aroma | Fast &amp; Fresh Biryani Delivery</title>
+  <meta name="description" content="Fast and reliable biryani delivery service. Free delivery within 5km, same-day delivery available. Order authentic Hyderabadi biryani now."><!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"><!-- Elements SDK -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #FF6B35;
+            --deep-charcoal: #2C1810;
+            --rich-burgundy: #D2691E;
+            --warm-cream: #FFF8DC;
+            --accent-copper: #CD853F;
+            --text-dark: #1A1A1A;
+            --text-light: #666;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+            cursor: default;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 24, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(44, 24, 16, 0.98);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--warm-cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--warm-cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(135deg, rgba(44,24,16,0.9), rgba(210,105,30,0.7)), 
+                        url('images/delivery-header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            background: white;
+            padding: 3rem 0;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: var(--warm-cream);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Delivery Sections */
+        .delivery-section {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-charcoal);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+
+        /* Delivery Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Coverage Map */
+        .coverage-section {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .coverage-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .coverage-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .coverage-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .coverage-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .coverage-list li:last-child {
+            border-bottom: none;
+        }
+
+        .area-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .coverage-map {
+            background: var(--warm-cream);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .map-placeholder {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-gold);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transform: rotate(45deg);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary-gold);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-copper);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--deep-charcoal);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .faq-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .faq-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--warm-cream);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--deep-charcoal);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header {
+                padding: 6rem 0 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .coverage-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .coverage-section {
+                padding: 2rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-whatsapp {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .process-step {
+                padding: 2rem 1.5rem;
+            }
+
+            .pricing-card {
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav class="navbar" id="navbar">
+   <div class="nav-container"><a href="home.html" class="logo"> <img src="images/logo-icon.png" alt="Aroma Logo" class="logo-icon" onerror="this.style.display='none'"> Aroma </a>
+    <ul class="nav-links" id="navLinks">
+     <li><a href="home.html">Home</a></li>
+     <li><a href="menu.html">Menu</a></li>
+     <li><a href="story.html">Our Story</a></li>
+     <li><a href="delivery.html" class="active">Delivery</a></li>
+     <li><a href="contact.html">Contact</a></li>
+    </ul><button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">☰</button>
+   </div>
+  </nav><!-- Page Header -->
+  <section class="page-header">
+   <div class="container">
+    <h1>Fast &amp; Fresh Delivery</h1>
+    <p>Hot, authentic biryani delivered straight to your doorstep with care and speed</p>
+   </div>
+  </section><!-- Quick Stats -->
+  <section class="quick-stats">
+   <div class="stats-grid">
+    <div class="stat-item"><span class="stat-number">30-45</span> <span class="stat-label">Minutes Delivery</span>
+    </div>
+    <div class="stat-item"><span class="stat-number">5km</span> <span class="stat-label">Free Delivery Zone</span>
+    </div>
+    <div class="stat-item"><span class="stat-number">10AM-10PM</span> <span class="stat-label">Daily Service</span>
+    </div>
+    <div class="stat-item"><span class="stat-number">100%</span> <span class="stat-label">Fresh &amp; Hot</span>
+    </div>
+   </div>
+  </section><!-- Delivery Process -->
+  <section class="delivery-section">
+   <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="process-grid">
+     <div class="process-step">
+      <div class="step-number">
+       1
+      </div><span class="step-icon">📱</span>
+      <h3>Order via WhatsApp</h3>
+      <p>Send us a message on WhatsApp with your biryani selection. Our team will confirm your order and provide the total cost including delivery.</p>
+     </div>
+     <div class="process-step">
+      <div class="step-number">
+       2
+      </div><span class="step-icon">👨‍🍳</span>
+      <h3>Fresh Preparation</h3>
+      <p>Our expert chefs start preparing your biryani fresh using traditional methods. Each order is cooked to perfection with premium ingredients.</p>
+     </div>
+     <div class="process-step">
+      <div class="step-number">
+       3
+      </div><span class="step-icon">📦</span>
+      <h3>Careful Packaging</h3>
+      <p>Your biryani is packed in insulated containers to maintain temperature and freshness. We ensure it arrives exactly as it left our kitchen.</p>
+     </div>
+     <div class="process-step">
+      <div class="step-number">
+       4
+      </div><span class="step-icon">🚗</span>
+      <h3>Fast Delivery</h3>
+      <p>Our reliable delivery team brings your hot biryani directly to your location within 30-45 minutes. Payment on delivery accepted.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Coverage Area -->
+  <section class="delivery-section">
+   <div class="container">
+    <div class="coverage-section">
+     <div class="coverage-content">
+      <div class="coverage-info">
+       <h3>Delivery Coverage Areas</h3>
+       <p>We deliver fresh, hot biryani across multiple areas with varying delivery charges based on distance from our kitchen.</p>
+       <ul class="coverage-list">
+        <li>
+         <div class="area-icon">
+          🆓
+         </div>
+         <div><strong>Free Delivery Zone (0-5km)</strong><br>
+           Westlands, Kilimani, Lavington, Karen, Kileleshwa
+         </div></li>
+        <li>
+         <div class="area-icon">
+          💰
+         </div>
+         <div><strong>Standard Delivery (5-10km) - KSh 150</strong><br>
+           Parklands, Eastleigh, South B, South C, Langata
+         </div></li>
+        <li>
+         <div class="area-icon">
+          🚚
+         </div>
+         <div><strong>Extended Delivery (10-15km) - KSh 250</strong><br>
+           Kasarani, Embakasi, Kahawa, Rongai, Ngong
+         </div></li>
+       </ul>
+       <p><strong>Don't see your area?</strong> Contact us on WhatsApp - we're always expanding our delivery network!</p>
+      </div>
+      <div class="coverage-map">
+       <div class="map-placeholder">
+        🗺️
+       </div>
+       <h4>Nairobi Delivery Map</h4>
+       <p>Covering major areas across Nairobi with reliable delivery service</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Delivery Options -->
+  <section class="delivery-section">
+   <div class="container">
+    <h2 class="section-title">Delivery Options</h2>
+    <div class="pricing-grid">
+     <div class="pricing-card">
+      <h3>Standard Delivery</h3>
+      <div class="price">
+       45-60 min
+      </div>
+      <ul class="pricing-features">
+       <li>Regular preparation time</li>
+       <li>Hot &amp; fresh guarantee</li>
+       <li>Insulated packaging</li>
+       <li>Order tracking via WhatsApp</li>
+       <li>Payment on delivery</li>
+      </ul><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20place%20a%20standard%20delivery%20order." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Standard Delivery </a>
+     </div>
+     <div class="pricing-card featured">
+      <h3>Express Delivery</h3>
+      <div class="price">
+       30-45 min
+      </div>
+      <ul class="pricing-features">
+       <li>Priority preparation</li>
+       <li>Faster delivery time</li>
+       <li>Premium packaging</li>
+       <li>Real-time updates</li>
+       <li>Express delivery fee: KSh 100</li>
+      </ul><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20place%20an%20express%20delivery%20order%20(30-45%20min)." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Express Delivery </a>
+     </div>
+     <div class="pricing-card">
+      <h3>Scheduled Delivery</h3>
+      <div class="price">
+       Your Time
+      </div>
+      <ul class="pricing-features">
+       <li>Choose your delivery time</li>
+       <li>Perfect for events</li>
+       <li>Advance booking available</li>
+       <li>Bulk order discounts</li>
+       <li>Same day or next day</li>
+      </ul><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20schedule%20a%20delivery%20for%20a%20specific%20time." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Schedule Delivery </a>
+     </div>
+    </div>
+   </div>
+  </section><!-- FAQ Section -->
+  <section class="faq-section">
+   <div class="container">
+    <h2 class="section-title" style="color: white;">Delivery FAQ</h2>
+    <div class="faq-grid">
+     <div class="faq-item">
+      <h4>What are your delivery hours?</h4>
+      <p>We deliver daily from 10:00 AM to 10:00 PM. Last orders are accepted at 9:30 PM to ensure delivery before closing time.</p>
+     </div>
+     <div class="faq-item">
+      <h4>How do I track my order?</h4>
+      <p>Once you place an order via WhatsApp, we'll send you regular updates including preparation start, cooking completion, and dispatch notifications.</p>
+     </div>
+     <div class="faq-item">
+      <h4>What payment methods do you accept?</h4>
+      <p>We accept cash on delivery, M-Pesa, and bank transfers. Payment details will be shared when you place your order via WhatsApp.</p>
+     </div>
+     <div class="faq-item">
+      <h4>Do you deliver during bad weather?</h4>
+      <p>Yes, we deliver in most weather conditions. During severe weather, delivery times may be slightly extended for safety reasons.</p>
+     </div>
+     <div class="faq-item">
+      <h4>Can I modify my order after placing it?</h4>
+      <p>Order modifications are possible within 10 minutes of placing the order, before preparation begins. Contact us immediately via WhatsApp.</p>
+     </div>
+     <div class="faq-item">
+      <h4>What if I'm not satisfied with my delivery?</h4>
+      <p>Customer satisfaction is our priority. If there's any issue with your order, contact us immediately and we'll make it right.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Floating WhatsApp Button --> <a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20place%20a%20delivery%20order.%20What's%20available%20today?" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp"> <img src="images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" onerror="this.innerHTML='💬'"> </a> <!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3>Fast Delivery</h3>
+      <p>Hot biryani delivered fresh to your doorstep within 30-45 minutes across Nairobi.</p>
+     </div>
+     <div class="footer-section">
+      <h3>Delivery Info</h3>
+      <p>Free delivery within 5km</p>
+      <p>Express delivery available</p>
+      <p>Scheduled delivery options</p>
+      <p>Payment on delivery accepted</p>
+     </div>
+     <div class="footer-section">
+      <h3>Order Now</h3>
+      <p><a href="https://wa.me/254718763032" target="_blank" rel="noopener noreferrer">WhatsApp: +254 718 763 032</a></p>
+      <p>Hours: 10 AM - 10 PM Daily</p>
+      <p>Last order: 9:30 PM</p>
+     </div>
+     <div class="footer-section">
+      <h3>Coverage Areas</h3>
+      <p>Westlands, Kilimani, Karen</p>
+      <p>Lavington, Kileleshwa</p>
+      <p>Parklands, Eastleigh</p>
+      <p>And many more areas!</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 Aroma Cloud Kitchen. All rights reserved. | Fast, fresh, and always delicious</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Configuration object for editable elements
+        const defaultConfig = {
+            page_title: "Fast & Fresh Delivery",
+            page_subtitle: "Hot, authentic biryani delivered straight to your doorstep with care and speed",
+            delivery_time: "30-45 minutes",
+            free_delivery_area: "Within 5km",
+            phone_number: "+254718763032",
+            primary_color: "#FF6B35",
+            background_color: "#FFF8DC",
+            accent_color: "#D2691E",
+            font_family: "Playfair Display",
+            font_size: 16
+        };
+
+        let config = { ...defaultConfig };
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Elements SDK Integration
+        async function onConfigChange(newConfig) {
+            // Update page title
+            const pageTitle = document.querySelector('.page-header h1');
+            if (pageTitle) {
+                pageTitle.textContent = newConfig.page_title || defaultConfig.page_title;
+            }
+
+            // Update page subtitle
+            const pageSubtitle = document.querySelector('.page-header p');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = newConfig.page_subtitle || defaultConfig.page_subtitle;
+            }
+
+            // Update delivery time in stats
+            const deliveryTimeStat = document.querySelector('.stat-number');
+            if (deliveryTimeStat) {
+                deliveryTimeStat.textContent = newConfig.delivery_time || defaultConfig.delivery_time;
+            }
+
+            // Update free delivery area in stats
+            const freeDeliveryStats = document.querySelectorAll('.stat-number');
+            if (freeDeliveryStats[1]) {
+                freeDeliveryStats[1].textContent = newConfig.free_delivery_area || defaultConfig.free_delivery_area;
+            }
+
+            // Update phone numbers in all WhatsApp links
+            const phoneNumber = newConfig.phone_number || defaultConfig.phone_number;
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            
+            whatsappLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/wa\.me\/[\d+]+/, `wa.me/${phoneNumber.replace(/\s+/g, '')}`);
+                link.setAttribute('href', newHref);
+            });
+
+            // Apply colors
+            const primaryColor = newConfig.primary_color || defaultConfig.primary_color;
+            const backgroundColor = newConfig.background_color || defaultConfig.background_color;
+            const accentColor = newConfig.accent_color || defaultConfig.accent_color;
+
+            // Update CSS custom properties
+            document.documentElement.style.setProperty('--primary-gold', primaryColor);
+            document.documentElement.style.setProperty('--warm-cream', backgroundColor);
+            document.documentElement.style.setProperty('--rich-burgundy', accentColor);
+
+            // Apply font family
+            const fontFamily = newConfig.font_family || defaultConfig.font_family;
+            const baseFontStack = 'Arial, sans-serif';
+            
+            // Apply to headings and titles
+            const headings = document.querySelectorAll('h1, h2, h3, h4, .logo, .section-title, .stat-number');
+            headings.forEach(el => {
+                el.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+            });
+
+            // Apply font size scaling
+            const fontSize = newConfig.font_size || defaultConfig.font_size;
+            
+            // Scale different text elements proportionally
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 2.2}px`;
+            });
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.6}px`;
+            });
+
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.4}px`;
+            });
+
+            const bodyElements = document.querySelectorAll('p, .btn, .stat-label, .pricing-features li');
+            bodyElements.forEach(el => {
+                el.style.fontSize = `${fontSize}px`;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["page_title", config.page_title || defaultConfig.page_title],
+                ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                ["delivery_time", config.delivery_time || defaultConfig.delivery_time],
+                ["free_delivery_area", config.free_delivery_area || defaultConfig.free_delivery_area],
+                ["phone_number", config.phone_number || defaultConfig.phone_number]
+            ]);
+        }
+
+        // Initialize Elements SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Update config reference
+        if (window.elementSdk && window.elementSdk.config) {
+            config = window.elementSdk.config;
+        }
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes mobile menu
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997512de3450b19c',t:'MTc2MTkzMzg1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
