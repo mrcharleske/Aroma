@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroma - Authentic Hyderabadi Biryani | Premium Cloud Kitchen</title>
+  <meta name="description" content="Experience the world's finest Hyderabadi biryani delivered fresh. Authentic recipes, premium ingredients, global standards. Order now from Aroma Cloud Kitchen."><!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"><!-- Elements SDK -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #FF6B35;
+            --deep-charcoal: #2C1810;
+            --rich-burgundy: #D2691E;
+            --warm-cream: #FFF8DC;
+            --accent-copper: #CD853F;
+            --text-dark: #1A1A1A;
+            --text-light: #666;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--warm-cream);
+            cursor: default;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 24, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(44, 24, 16, 0.98);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--warm-cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--warm-cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(44,24,16,0.8), rgba(210,105,30,0.6)), 
+                        url('images/hero-biryani.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(44,24,16,0.3) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-gold);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-copper);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--warm-cream);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            transform: translateY(-2px);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-charcoal);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: var(--warm-cream);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--deep-charcoal);
+        }
+
+        /* Chef's Special Section */
+        .chefs-special {
+            background: var(--deep-charcoal);
+            color: var(--warm-cream);
+        }
+
+        .chefs-special .section-title {
+            color: var(--primary-gold);
+        }
+
+        .special-dish {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .special-dish-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .special-dish-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .special-dish-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .nutrition-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .nutrition-item {
+            text-align: center;
+            background: rgba(255, 248, 220, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .nutrition-item .value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+        }
+
+        .nutrition-item .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Process Section */
+        .process {
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--warm-cream);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--warm-cream);
+        }
+
+        .reviews-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-behavior: smooth;
+        }
+
+        .review-card {
+            min-width: 350px;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .reviewer-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+        }
+
+        .review-stars {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--deep-charcoal);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-soft);
+            font-weight: 500;
+            color: var(--deep-charcoal);
+        }
+
+        .trust-badge-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--warm-cream);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gold);
+            color: var(--deep-charcoal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+            background: var(--accent-copper);
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--deep-charcoal);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                height: 80vh;
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .special-dish {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .special-dish-image {
+                height: 250px;
+            }
+
+            .special-dish-content h3 {
+                font-size: 2rem;
+            }
+
+            .nutrition-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-slider {
+                padding: 1rem 0;
+            }
+
+            .review-card {
+                min-width: 280px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .floating-whatsapp {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nutrition-info {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav class="navbar" id="navbar">
+   <div class="nav-container"><a href="#" class="logo"> <img src="images/logo-icon.png" alt="Aroma Logo" class="logo-icon" onerror="this.style.display='none'"> Aroma </a>
+    <ul class="nav-links" id="navLinks">
+     <li><a href="index.html">Home</a></li>
+     <li><a href="menu.html">Menu</a></li>
+     <li><a href="story.html">Our Story</a></li>
+     <li><a href="delivery.html">Delivery</a></li>
+     <li><a href="contact.html">Contact</a></li>
+    </ul><button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">☰</button>
+   </div>
+  </nav><!-- Hero Section -->
+  <section class="hero">
+   <div class="hero-content">
+    <h1>The World's Love Affair with Biryani Begins Here</h1>
+    <p class="subtitle">Crafted with heritage. Delivered with heart.</p>
+    <div class="hero-buttons"><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20place%20an%20order.%20Please%20share%20your%20menu%20and%20prices." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Now </a> <a href="menu.html" class="btn btn-secondary"> View Menu </a>
+    </div>
+   </div>
+  </section><!-- Features Section -->
+  <section class="section features">
+   <div class="container">
+    <h2 class="section-title">Why Choose Aroma</h2>
+    <p class="section-subtitle">Experience the authentic taste of Hyderabad with every bite</p>
+    <div class="features-grid">
+     <div class="feature-card"><img src="images/authentic-spices.jpg" alt="Authentic Hyderabadi spices and ingredients" class="feature-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5BdXRoZW50aWMgU3BpY2VzPC90ZXh0Pgo8L3N2Zz4='">
+      <h3>Authentic Hyderabadi Recipes</h3>
+      <p>Traditional recipes passed down through generations, prepared with authentic spices and techniques that capture the true essence of Hyderabad.</p>
+     </div>
+     <div class="feature-card"><img src="images/fresh-ingredients.jpg" alt="Fresh premium ingredients and basmati rice" class="feature-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRDI2OTFFIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5GcmVzaCBJbmdyZWRpZW50czwvdGV4dD4KPC9zdmc+'">
+      <h3>Premium Fresh Ingredients</h3>
+      <p>Only the finest basmati rice, tender meat, and aromatic spices sourced daily to ensure every biryani meets our exceptional quality standards.</p>
+     </div>
+     <div class="feature-card"><img src="images/fast-delivery.jpg" alt="Fast delivery service with professional packaging" class="feature-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjQ0Q4NTNGIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsIj5GYXN0IERlbGl2ZXJ5PC90ZXh0Pgo8L3N2Zz4='">
+      <h3>Fast Delivery &amp; Global Standards</h3>
+      <p>Professional packaging and swift delivery service that maintains the perfect temperature and freshness from our kitchen to your table.</p>
+     </div>
+    </div><!-- Trust Badges -->
+    <div class="trust-badges">
+     <div class="trust-badge"><img src="images/halal-icon.png" alt="Halal certified" class="trust-badge-icon" onerror="this.style.display='none'"> 100% Halal Certified
+     </div>
+     <div class="trust-badge"><img src="images/star-icon.png" alt="5 star rating" class="trust-badge-icon" onerror="this.style.display='none'"> 1000+ Happy Customers
+     </div>
+     <div class="trust-badge"><img src="images/fresh-icon.png" alt="Fresh daily" class="trust-badge-icon" onerror="this.style.display='none'"> Fresh Daily
+     </div>
+    </div>
+   </div>
+  </section><!-- Chef's Special Section -->
+  <section class="section chefs-special">
+   <div class="container">
+    <h2 class="section-title">Chef's Special Today</h2>
+    <div class="special-dish"><img src="images/royal-biryani.jpg" alt="Royal Hyderabadi Dum Biryani - Chef's Special" class="special-dish-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjMwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIzNiIgZm9udC1mYW1pbHk9IkFyaWFsIj5Sb3lhbCBCaXJ5YW5pPC90ZXh0Pgo8L3N2Zz4='">
+     <div class="special-dish-content">
+      <h3>Royal Hyderabadi Dum Biryani</h3>
+      <p>Our signature dish features tender goat meat marinated for 24 hours in a secret blend of spices, layered with premium aged basmati rice, and slow-cooked in a sealed pot for 3 hours. Each grain absorbs the rich flavors, creating a symphony of taste that defines authentic Hyderabadi cuisine.</p>
+      <div class="nutrition-info">
+       <div class="nutrition-item">
+        <div class="value">
+         45min
+        </div>
+        <div class="label">
+         Prep Time
+        </div>
+       </div>
+       <div class="nutrition-item">
+        <div class="value">
+         2-3
+        </div>
+        <div class="label">
+         Serves
+        </div>
+       </div>
+       <div class="nutrition-item">
+        <div class="value">
+         Medium
+        </div>
+        <div class="label">
+         Spice Level
+        </div>
+       </div>
+       <div class="nutrition-item">
+        <div class="value">
+         Premium
+        </div>
+        <div class="label">
+         Quality
+        </div>
+       </div>
+      </div><a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20order%20the%20Chef's%20Special%20Royal%20Hyderabadi%20Dum%20Biryani.%20Please%20share%20the%20price%20and%20availability." class="btn btn-primary" target="_blank" rel="noopener noreferrer"> Order Chef's Special </a>
+     </div>
+    </div>
+   </div>
+  </section><!-- Process Section -->
+  <section class="section process">
+   <div class="container">
+    <h2 class="section-title">Our Authentic Process</h2>
+    <p class="section-subtitle">From kitchen to your table, every step is crafted with care</p>
+    <div class="process-steps">
+     <div class="process-step"><img src="images/sourcing.jpg" alt="Fresh ingredient sourcing process" class="process-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDQwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiPkZyZXNoIFNvdXJjaW5nPC90ZXh0Pgo8L3N2Zz4='">
+      <h3>Fresh Sourcing</h3>
+      <p>Daily selection of premium ingredients from trusted suppliers</p>
+     </div>
+     <div class="process-step"><img src="images/marination.jpg" alt="Traditional marination process" class="process-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDQwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRDI2OTFFIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiPk1hcmluYXRpb248L3RleHQ+Cjwvc3ZnPg=='">
+      <h3>Traditional Marination</h3>
+      <p>24-hour marination process with authentic Hyderabadi spices</p>
+     </div>
+     <div class="process-step"><img src="images/dum-cooking.jpg" alt="Dum cooking process in sealed pots" class="process-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDQwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjQ0Q4NTNGIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiPkR1bSBDb29raW5nPC90ZXh0Pgo8L3N2Zz4='">
+      <h3>Dum Cooking</h3>
+      <p>Slow-cooked in sealed pots for 3+ hours for perfect flavor infusion</p>
+     </div>
+     <div class="process-step"><img src="images/packaging.jpg" alt="Premium eco-friendly packaging" class="process-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDQwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjMkMxODEwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiPlBhY2thZ2luZzwvdGV4dD4KPC9zdmc+'">
+      <h3>Premium Packaging</h3>
+      <p>Eco-friendly, temperature-controlled packaging for freshness</p>
+     </div>
+     <div class="process-step"><img src="images/delivery-service.jpg" alt="Swift delivery service" class="process-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDQwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRkZGOERDIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMyQzE4MTAiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCI+U3dpZnQgRGVsaXZlcnk8L3RleHQ+Cjwvc3ZnPg=='">
+      <h3>Swift Delivery</h3>
+      <p>Fast, reliable delivery to bring warmth to your doorstep</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Reviews Section -->
+  <section class="section reviews">
+   <div class="container">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="reviews-slider">
+     <div class="review-card"><img src="images/customer-1.jpg" alt="Sarah M. - Happy Customer" class="reviewer-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNGRjZCMzUiLz4KPHN2ZyB4PSIyMCIgeT0iMTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDIwIDMwIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSI4IiByPSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMiAyNkMyIDIwIDYgMTYgMTAgMTZTMTggMjAgMTggMjZIMloiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo8L3N2Zz4='">
+      <div class="review-stars">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"The most authentic Hyderabadi biryani I've had outside of Hyderabad! The flavors are incredible and the delivery was perfect."</p>
+      <p class="review-author">- Sarah M.</p>
+     </div>
+     <div class="review-card"><img src="images/customer-2.jpg" alt="Ahmed K. - Happy Customer" class="reviewer-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNEMjY5MUUiLz4KPHN2ZyB4PSIyMCIgeT0iMTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDIwIDMwIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSI4IiByPSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMiAyNkMyIDIwIDYgMTYgMTAgMTZTMTggMjAgMTggMjZIMloiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo8L3N2Zz4='">
+      <div class="review-stars">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"Aroma has become our family's go-to for special occasions. The quality is consistently outstanding and the packaging is premium."</p>
+      <p class="review-author">- Ahmed K.</p>
+     </div>
+     <div class="review-card"><img src="images/customer-3.jpg" alt="Priya R. - Happy Customer" class="reviewer-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNDRDg1M0YiLz4KPHN2ZyB4PSIyMCIgeT0iMTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDIwIDMwIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSI4IiByPSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMiAyNkMyIDIwIDYgMTYgMTAgMTZTMTggMjAgMTggMjZIMloiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo8L3N2Zz4='">
+      <div class="review-stars">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"Finally found a place that delivers restaurant-quality biryani to my home. The spices are perfectly balanced and the meat is so tender."</p>
+      <p class="review-author">- Priya R.</p>
+     </div>
+     <div class="review-card"><img src="images/customer-4.jpg" alt="Michael D. - Happy Customer" class="reviewer-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiMyQzE4MTAiLz4KPHN2ZyB4PSIyMCIgeT0iMTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDIwIDMwIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSI4IiByPSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMiAyNkMyIDIwIDYgMTYgMTAgMTZTMTggMjAgMTggMjZIMloiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo8L3N2Zz4='">
+      <div class="review-stars">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"The aroma alone when you open the package is incredible. This is authentic biryani at its finest. Highly recommended!"</p>
+      <p class="review-author">- Michael D.</p>
+     </div>
+     <div class="review-card"><img src="images/customer-5.jpg" alt="Fatima A. - Happy Customer" class="reviewer-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNGRkY4REMiLz4KPHN2ZyB4PSIyMCIgeT0iMTUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDIwIDMwIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSI4IiByPSI2IiBmaWxsPSIjMkMxODEwIi8+CjxwYXRoIGQ9Ik0yIDI2QzIgMjAgNiAxNiAxMCAxNlMxOCAyMCAxOCAyNkgyWiIgZmlsbD0iIzJDMTgxMCIvPgo8L3N2Zz4KPC9zdmc+'">
+      <div class="review-stars">
+       ⭐⭐⭐⭐⭐
+      </div>
+      <p class="review-text">"I've tried many biryani places, but Aroma is in a league of its own. The attention to detail and flavor is unmatched."</p>
+      <p class="review-author">- Fatima A.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Gallery Section -->
+  <section class="section gallery">
+   <div class="container">
+    <h2 class="section-title">Behind the Scenes</h2>
+    <p class="section-subtitle">Take a peek into our kitchen where magic happens</p>
+    <div class="gallery-grid">
+     <div class="gallery-item"><img src="images/kitchen-1.jpg" alt="Our professional kitchen setup" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5LaXRjaGVuPC90ZXh0Pgo8L3N2Zz4='">
+     </div>
+     <div class="gallery-item"><img src="images/kitchen-2.jpg" alt="Chef preparing biryani" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRDI2OTFFIi8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5DaGVmPC90ZXh0Pgo8L3N2Zz4='">
+     </div>
+     <div class="gallery-item"><img src="images/kitchen-3.jpg" alt="Spice preparation area" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjQ0Q4NTNGIi8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5TcGljZXM8L3RleHQ+Cjwvc3ZnPg=='">
+     </div>
+     <div class="gallery-item"><img src="images/kitchen-4.jpg" alt="Dum cooking process" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjMkMxODEwIi8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5Db29raW5nPC90ZXh0Pgo8L3N2Zz4='">
+     </div>
+     <div class="gallery-item"><img src="images/kitchen-5.jpg" alt="Fresh ingredients display" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZGOERDIi8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMkMxODEwIiBmb250LXNpemU9IjIwIiBmb250LWZhbWlseT0iQXJpYWwiPkluZ3JlZGllbnRzPC90ZXh0Pgo8L3N2Zz4='">
+     </div>
+     <div class="gallery-item"><img src="images/kitchen-6.jpg" alt="Packaging and quality control" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkY2QjM1Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIj5QYWNrYWdpbmc8L3RleHQ+Cjwvc3ZnPg=='">
+     </div>
+    </div>
+   </div>
+  </section><!-- Floating WhatsApp Button --> <a href="https://wa.me/254718763032?text=Hi%20Aroma!%20I'd%20like%20to%20place%20an%20order." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp"> <img src="images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" onerror="this.innerHTML='💬'"> </a> <!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3>Aroma</h3>
+      <p>Bringing the authentic taste of Hyderabadi biryani to your doorstep. Crafted with heritage, delivered with heart.</p>
+      <div class="social-links"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"> <img src="images/facebook-icon.png" alt="Facebook" class="social-icon" onerror="this.innerHTML='f'"> </a> <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"> <img src="images/instagram-icon.png" alt="Instagram" class="social-icon" onerror="this.innerHTML='📷'"> </a> <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"> <img src="images/twitter-icon.png" alt="Twitter" class="social-icon" onerror="this.innerHTML='🐦'"> </a> <a href="https://wa.me/254718763032" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"> <img src="images/whatsapp-icon.png" alt="WhatsApp" class="social-icon" onerror="this.innerHTML='💬'"> </a>
+      </div>
+     </div>
+     <div class="footer-section">
+      <h3>Quick Links</h3>
+      <p><a href="menu.html">Our Menu</a></p>
+      <p><a href="story.html">Our Story</a></p>
+      <p><a href="delivery.html">Delivery Info</a></p>
+      <p><a href="contact.html">Contact Us</a></p>
+     </div>
+     <div class="footer-section">
+      <h3>Contact Info</h3>
+      <p>WhatsApp: +254 718 763 032</p>
+      <p>Phone: +254 718 763 032</p>
+      <p>Email: hello@aroma.kitchen</p>
+      <p>Hours: 10 AM - 10 PM Daily</p>
+     </div>
+     <div class="footer-section">
+      <h3>Special Offers</h3>
+      <p>Order 5 Times, Get 1 Free</p>
+      <p>Free delivery within 5 km</p>
+      <p>Gift Biryani to Friends</p>
+      <p>Same Day Delivery Available</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 Aroma Cloud Kitchen. All rights reserved. | Crafted with ❤️ for biryani lovers worldwide</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Configuration object for editable elements
+        const defaultConfig = {
+            brand_name: "Aroma",
+            hero_headline: "The World's Love Affair with Biryani Begins Here",
+            hero_subheadline: "Crafted with heritage. Delivered with heart.",
+            phone_number: "+254718763032",
+            delivery_area: "Free delivery within 5 km",
+            primary_color: "#FF6B35",
+            background_color: "#FFF8DC",
+            accent_color: "#D2691E",
+            font_family: "Playfair Display",
+            font_size: 16
+        };
+
+        let config = { ...defaultConfig };
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Auto-scroll reviews
+        let reviewsScrollInterval;
+        function startReviewsAutoScroll() {
+            const reviewsSlider = document.querySelector('.reviews-slider');
+            if (reviewsSlider) {
+                reviewsScrollInterval = setInterval(() => {
+                    reviewsSlider.scrollLeft += 370;
+                    if (reviewsSlider.scrollLeft >= reviewsSlider.scrollWidth - reviewsSlider.clientWidth) {
+                        reviewsSlider.scrollLeft = 0;
+                    }
+                }, 4000);
+            }
+        }
+
+        // Start auto-scroll when page loads
+        setTimeout(startReviewsAutoScroll, 3000);
+
+        // Elements SDK Integration
+        async function onConfigChange(newConfig) {
+            // Update brand name
+            const logoElements = document.querySelectorAll('.logo');
+            logoElements.forEach(el => {
+                const logoIcon = el.querySelector('.logo-icon');
+                if (logoIcon) {
+                    el.innerHTML = `<img src="images/logo-icon.png" alt="Aroma Logo" class="logo-icon" onerror="this.style.display='none'">${newConfig.brand_name || defaultConfig.brand_name}`;
+                } else {
+                    el.textContent = newConfig.brand_name || defaultConfig.brand_name;
+                }
+            });
+
+            // Update hero headline
+            const heroHeadline = document.querySelector('.hero h1');
+            if (heroHeadline) {
+                heroHeadline.textContent = newConfig.hero_headline || defaultConfig.hero_headline;
+            }
+
+            // Update hero subheadline
+            const heroSubheadline = document.querySelector('.hero .subtitle');
+            if (heroSubheadline) {
+                heroSubheadline.textContent = newConfig.hero_subheadline || defaultConfig.hero_subheadline;
+            }
+
+            // Update phone numbers in all WhatsApp and call links
+            const phoneNumber = newConfig.phone_number || defaultConfig.phone_number;
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            
+            whatsappLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/wa\.me\/[\d+]+/, `wa.me/${phoneNumber.replace(/\s+/g, '')}`);
+                link.setAttribute('href', newHref);
+            });
+
+            // Apply colors
+            const primaryColor = newConfig.primary_color || defaultConfig.primary_color;
+            const backgroundColor = newConfig.background_color || defaultConfig.background_color;
+            const accentColor = newConfig.accent_color || defaultConfig.accent_color;
+
+            // Update CSS custom properties
+            document.documentElement.style.setProperty('--primary-gold', primaryColor);
+            document.documentElement.style.setProperty('--warm-cream', backgroundColor);
+            document.documentElement.style.setProperty('--rich-burgundy', accentColor);
+
+            // Apply font family
+            const fontFamily = newConfig.font_family || defaultConfig.font_family;
+            const baseFontStack = 'Arial, sans-serif';
+            
+            // Apply to headings and titles
+            const headings = document.querySelectorAll('h1, h2, h3, .logo, .section-title');
+            headings.forEach(el => {
+                el.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+            });
+
+            // Apply font size scaling
+            const fontSize = newConfig.font_size || defaultConfig.font_size;
+            
+            // Scale different text elements proportionally
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 2.5}px`;
+            });
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.875}px`;
+            });
+
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => {
+                el.style.fontSize = `${fontSize * 1.5}px`;
+            });
+
+            const bodyElements = document.querySelectorAll('p, .btn, input, textarea');
+            bodyElements.forEach(el => {
+                el.style.fontSize = `${fontSize}px`;
+            });
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["brand_name", config.brand_name || defaultConfig.brand_name],
+                ["hero_headline", config.hero_headline || defaultConfig.hero_headline],
+                ["hero_subheadline", config.hero_subheadline || defaultConfig.hero_subheadline],
+                ["phone_number", config.phone_number || defaultConfig.phone_number],
+                ["delivery_area", config.delivery_area || defaultConfig.delivery_area]
+            ]);
+        }
+
+        // Initialize Elements SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Update config reference
+        if (window.elementSdk && window.elementSdk.config) {
+            config = window.elementSdk.config;
+        }
+
+        // Gallery item click handler
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Simple lightbox effect
+                const img = this.querySelector('.gallery-image');
+                if (img && img.src) {
+                    window.open(img.src, '_blank');
+                }
+            });
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes mobile menu
+            if (e.key === 'Escape') {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+
+        // Performance optimization - lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            // Observe all images with data-src attribute
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9974fdb9b46950d4',t:'MTc2MTkzMjk4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
